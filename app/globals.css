@@ -70,6 +70,8 @@ button { font: inherit; }
 .option-button:disabled { cursor: default; }
 .feedback { margin-top: 14px; padding: 13px 15px; border-left: 2px solid var(--red); background: #f3f3ed; color: #50564d; font-size: 12px; line-height: 1.65; animation: enter .22s ease both; }
 .feedback strong { color: var(--ink); }
+.reveal-button { align-self: flex-start; margin-top: 12px; padding: 4px 0; border: 0; border-bottom: 1px solid var(--red); background: transparent; color: var(--ink); font-size: 11px; font-weight: 700; cursor: pointer; }
+.reveal-button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
 .decision-bottom { margin-top: auto; padding-top: 18px; }
 .continue-button { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 17px; border: 0; background: var(--ink); color: white; font-size: 12px; font-weight: 700; cursor: pointer; transition: background .18s, color .18s; }
 .continue-button:disabled { background: #e7e8e1; color: #999d93; cursor: not-allowed; }

@@ -222,6 +222,7 @@ const scenarios: Scenario[] = [
 export default function Home() {
   const [step, setStep] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
+  const [revealedAll, setRevealedAll] = useState(false);
   const [answers, setAnswers] = useState<number[]>([]);
   const finished = step === scenarios.length;
   const scenario = scenarios[step];
@@ -230,12 +231,14 @@ export default function Home() {
     if (selected === null) return;
     setAnswers((current) => [...current, selected]);
     setSelected(null);
+    setRevealedAll(false);
     setStep((current) => current + 1);
   }
 
   function restart() {
     setStep(0);
     setSelected(null);
+    setRevealedAll(false);
     setAnswers([]);
   }
 
@@ -300,11 +303,21 @@ export default function Home() {
                   </button>
                 ))}
               </div>
-              {selected !== null && (
+              {selected !== null && !revealedAll && (
                 <div className="feedback" role="status">
                   <strong>What this choice weighs: </strong>{scenario.choices[selected].feedback}
                 </div>
               )}
+              {selected !== null && !revealedAll && (
+                <button className="reveal-button" onClick={() => setRevealedAll(true)}>
+                  Reveal feedback for all options
+                </button>
+              )}
+              {selected !== null && revealedAll && scenario.choices.map((choice, index) => (
+                <div className="feedback" role="status" key={choice.label}>
+                  <strong>{String.fromCharCode(65 + index)}: </strong>{choice.feedback}
+                </div>
+              ))}
               <div className="decision-bottom">
                 <button className="continue-button" onClick={continueQuiz} disabled={selected === null}>
                   <span>{selected === null ? "Choose an option to continue" : step === scenarios.length - 1 ? "See your results" : "Continue to next case"}</span>
