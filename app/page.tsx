@@ -23,8 +23,8 @@ const scenarios: Scenario[] = [
     setting: "A late shift at the county hospital",
     title: "One result, two risks",
     paragraphs: [
-      "A patient arrives with a positive result for a disease so uncommon that, in ten thousand people like them, doctors would expect to see just one case. The lab catches nearly every person who has it. But among people who do not, about one in a hundred still gets a positive result.",
-      "Without treatment, a person with the disease is unlikely to survive the month, and a two-day delay adds a serious risk for someone already deteriorating. The operation itself is successful for most patients, but one in a hundred die during surgery. An independent follow-up test can be back in 48 hours, but the invasive test causes a serious complication in two out of every hundred patients. The patient asks what you recommend.",
+      "A patient arrives with a positive result for a disease so uncommon that, in fifty thousand people like them, doctors would expect to see just one case. The lab catches nearly every person who has it. But among people who do not, about one in a hundred still gets a positive result.",
+      "Without treatment, a person with the disease is unlikely to survive the month, and a two-day delay adds a serious risk for someone already deteriorating. The operation itself is successful for most patients, but one in fifty die during surgery. An independent follow-up test can be back in 48 hours, but the invasive test causes a serious complication in two out of every hundred patients. The patient asks what you recommend.",
     ],
     prompt: "What do you advise the care team to do?",
     bias: "Base-rate neglect",
@@ -32,7 +32,7 @@ const scenarios: Scenario[] = [
     choices: [
       {
         label: "Recommend the operation now because the positive result is effectively a diagnosis.",
-        feedback: "A rare disease result is not certain, and the operation's 1% mortality is greater than the roughly 1% chance that this patient has the disease. The base rate and the patient's alternatives should be part of the recommendation.",
+        feedback: "A rare disease result is not certain, and the operation's 2% mortality is greater than the chance that this patient has the disease. The base rate and the patient's alternatives should be part of the recommendation.",
         stronger: false,
       },
       {
@@ -42,7 +42,7 @@ const scenarios: Scenario[] = [
       },
       {
         label: "Recommend the operation now after explaining the false-positive rate, the follow-up risk, and the cost of delay.",
-        feedback: "This still gives an invasive treatment priority over observation even though the positive result implies only about a 1% chance of disease. The operation's 1% mortality should be weighed against that small probability and the patient's alternatives.",
+        feedback: "This still gives an invasive treatment priority over observation even though the positive result implies only about a 1% chance of disease. The operation's 2% mortality should be weighed against that small probability and the patient's alternatives.",
         stronger: false,
       },
       {
