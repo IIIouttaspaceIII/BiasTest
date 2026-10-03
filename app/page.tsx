@@ -46,7 +46,7 @@ const scenarios: Scenario[] = [
         stronger: false,
       },
       {
-        label: "As the attending physician, recommend no surgery for now; monitor the patient before choosing either operation.",
+        label: "As the attending physician, recommend no surgery for now; any option is too risky compared to the odds of actually having the disease.",
         feedback: "This is the stronger choice because the disease is so rare that the positive result implies only about a 1% chance of disease, while both the immediate operation and the invasive follow-up carry roughly 2% risk or more. Observation avoids those immediate harms while the care team reassesses the patient.",
         stronger: true,
       },
